@@ -1,3 +1,4 @@
 <items gfxroot="gfx/items/" deathanm2="gfx/death_items.anm2" version="1">    
     <active id="0" name="Song of Solomon" gfx="bookofsongofsolomon.png" description="Charming" quality="2" maxcharges="4" chargetype="normal" />
+    <active id="1" name="Exodus" gfx="bookofexodus.png" description="Get out of here" quality="3" maxcharges="1" chargetype="normal" />
 </items>
