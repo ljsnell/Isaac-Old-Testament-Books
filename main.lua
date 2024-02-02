@@ -31,13 +31,24 @@ end
 mod:AddCallback(ModCallbacks.MC_USE_ITEM, mod.SongOfSolomonUse, sosBook)
 
 
--- Exodus: Opens a random door in the room (Like doorstop)
+-- Exodus: Opens a random door in the room (Like doorstop) Maybe use -isFirstEnemyDead?
 local exodusBook = Isaac.GetItemIdByName("Exodus")
 function mod:ExodusUse(item)
-    -- local doors = game:GetLevel():GetCurrentRoomDesc().Doors().Op
-    -- Game():GetRoom():GetDoor(math.random(0,3)):Open()
-    local level = Game():GetLevel()
-    Game():GetRoom():GetDoor(level.EnterDoor):Open()
+    local door_closed = true
+
+    while door_closed do
+        local grid_entity_door = Game():GetRoom():GetDoor(math.random(0,7))
+        if grid_entity_door ~= nil then
+            grid_entity_door:Open()
+            door_closed = false
+        end
+    end
+    
+    return {
+        Discharge = true,
+        Remove = false,
+        ShowAnim = true
+    }
 end
 
 mod:AddCallback(ModCallbacks.MC_USE_ITEM, mod.ExodusUse, exodusBook)
