@@ -2,7 +2,7 @@
 	<Info CreatedBy="robot" CreatedOn="2/5/2024 10:27:24 PM" Version="112" Fps="30"/>
 	<Content>
 		<Spritesheets>
-			<Spritesheet Path="costumes\exclamation_mark.png" Id="0"/>
+			<Spritesheet Path="costumes\jonah_mark.png" Id="0"/>
 		</Spritesheets>
 		<Layers>
 			<Layer Name="head1" Id="0" SpritesheetId="0"/>
