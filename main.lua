@@ -1,13 +1,13 @@
--- Item Ideas --
--- Numbers: Increase one random stat by +.7. 6 room charge ☑
-    -- Numbers: Guy who runs someone through with a spear (double damage for subsequent piercing shots)
+-- Item Ideas ---- 
+    -- Numbers (Angel Item): Guy who runs someone through with a spear (double damage for subsequent piercing shots)
+    -- Numbers Devil Deal: Increase damage by .6 every time you use an active item?
 -- Lamentations: Doubles creep damage ☑
 -- Judges: Spawns a random beggar, 6 room charge
     -- Separate items for each judge?
 -- Job: Temporary Transformation? Devolves all enemies 1 level?
 -- Joel: Spawns Locusts, 3 room charge
 
--- 1 Angel, 1 Devil, 1 neutral? 
+-- 1 Angel, 1 Devil, 1 neutral?
 -- (Chapter & verse)
 -- John 11:35?
 -- Exodus: Devil Item: golden calf? (2 hearts for 4 bone hearts?)
@@ -61,6 +61,35 @@ function mod:ExodusUse(item)
 end
 
 mod:AddCallback(ModCallbacks.MC_USE_ITEM, mod.ExodusUse, exodusBook)
+
+
+-- Numbers (Neutral): Increase one random stat by +1. 6 room charge
+local numbersBook = Isaac.GetItemIdByName("Numbers")
+local amountToIncreaseStatBy = 1
+function mod:NumbersUse(item)
+    local random_num = math.random(0,5)
+    local player = Isaac.GetPlayer()
+
+    -- Should really write this as a case statement
+    if random_num == 0 then
+        player.MoveSpeed = player.MoveSpeed + amountToIncreaseStatBy
+    end
+    -- Higher chance of boosting damage because that's the best stat
+    if random_num == 1 or random_num == 2 then
+        player.Damage = player.Damage + amountToIncreaseStatBy
+    end
+    if random_num == 3 then
+        player.TearRange = player.TearRange + amountToIncreaseStatBy
+    end
+    if random_num == 4 then
+        player.ShotSpeed = player.ShotSpeed + amountToIncreaseStatBy
+    end
+    if random_num == 5 then
+        player.Luck = player.Luck + amountToIncreaseStatBy
+    end    
+end
+
+mod:AddCallback(ModCallbacks.MC_USE_ITEM, mod.NumbersUse, numbersBook)
 
 
 -- Jonah: Resets angel chance to 100% on pickup, +.5 speed, +.5 damage
