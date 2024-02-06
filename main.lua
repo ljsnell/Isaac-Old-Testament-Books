@@ -1,12 +1,13 @@
 -- Item Ideas ---- 
     -- Numbers (Angel Item): Guy who runs someone through with a spear (double damage for subsequent piercing shots)
+    -- Numbers Devil Deal: Increase damage by .6 every time you use an active item?
 -- Lamentations: Doubles creep damage ☑
 -- Judges: Spawns a random beggar, 6 room charge
     -- Separate items for each judge?
 -- Job: Temporary Transformation? Devolves all enemies 1 level?
 -- Joel: Spawns Locusts, 3 room charge
 
--- 1 Angel, 1 Devil, 1 neutral? 
+-- 1 Angel, 1 Devil, 1 neutral?
 -- (Chapter & verse)
 -- John 11:35?
 -- Exodus: Devil Item: golden calf? (2 hearts for 4 bone hearts?)
@@ -77,13 +78,13 @@ function mod:NumbersUse(item)
     if random_num == 1 or random_num == 2 then
         player.Damage = player.Damage + amountToIncreaseStatBy
     end
-    if random_num == 0 then
+    if random_num == 3 then
         player.TearRange = player.TearRange + amountToIncreaseStatBy
     end
-    if random_num == 0 then
+    if random_num == 4 then
         player.ShotSpeed = player.ShotSpeed + amountToIncreaseStatBy
     end
-    if random_num == 0 then
+    if random_num == 5 then
         player.Luck = player.Luck + amountToIncreaseStatBy
     end    
 end
