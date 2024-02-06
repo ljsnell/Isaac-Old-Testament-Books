@@ -71,7 +71,7 @@ local jonahDamage = .5
 local jonahSpeed = .5
 local firstPickup = true
 function mod:EvaluateCache(player, cacheFlags)
-    if cacheFlags & CacheFlag.CACHE_DAMAGE == CacheFlag.CACHE_DAMAGE then
+    if cacheFlags & CacheFlag.CACHE_SPEED == CacheFlag.CACHE_SPEED then
         local itemCount = player:GetCollectibleNum(jonahBook)
         
         -- Adds damage
