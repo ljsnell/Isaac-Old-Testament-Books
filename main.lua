@@ -1,6 +1,7 @@
 -- Item Ideas ---- 
     -- Numbers (Angel Item): Guy who runs someone through with a spear (double damage for subsequent piercing shots)
-    -- Numbers Devil Deal: Increase damage by .6 every time you use an active item?
+    -- Numbers Devil Deal: Increase damage by .3 every time you use an active item?
+    -- Numbers Angels Deal: Balaam's curse, every floor with a curse doubles base damage
 -- Lamentations: Doubles creep damage ☑
 -- Judges: Spawns a random beggar, 6 room charge
     -- Separate items for each judge?
@@ -86,10 +87,21 @@ function mod:NumbersUse(item)
     end
     if random_num == 5 then
         player.Luck = player.Luck + amountToIncreaseStatBy
-    end    
+    end
 end
 
 mod:AddCallback(ModCallbacks.MC_USE_ITEM, mod.NumbersUse, numbersBook)
+
+
+-- Numbers Devil Deal: Increase damage by .3 every time you use an active item?
+-- Numbers 14:28-30
+local evilNumbers = Isaac.GetItemIdByName("Numbers 14:28-30")
+function mod:NumbersDevilDeal()
+    local player = Isaac.GetPlayer()
+    player.Damage = player.Damage + .3
+end
+
+mod:AddCallback(ModCallbacks.MC_USE_ITEM, mod.NumbersDevilDeal)
 
 
 -- Jonah: Resets angel chance to 100% on pickup, +.5 speed, +.5 damage
