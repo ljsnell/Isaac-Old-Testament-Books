@@ -1,11 +1,11 @@
 -- Item Ideas ---- 
     -- Numbers (Angel Item): Guy who runs someone through with a spear (double damage for subsequent piercing shots)
-    -- Numbers Devil Deal: Increase damage by .3 every time you use an active item?
-    -- Numbers Angels Deal: Balaam's curse, every floor with a curse doubles base damage
 -- Lamentations: Doubles creep damage ☑
 -- Judges: Spawns a random beggar, 6 room charge
     -- Separate items for each judge?
 -- Job: Temporary Transformation? Devolves all enemies 1 level?
+    -- GetTotalDamageTaken() https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html?h=player#int-gettotaldamagetaken
+    -- Spawn angel after taking x amount of damage, maybe 6?
 -- Joel: Spawns Locusts, 3 room charge
 
 -- 1 Angel, 1 Devil, 1 neutral?
@@ -96,14 +96,30 @@ mod:AddCallback(ModCallbacks.MC_USE_ITEM, mod.NumbersUse, numbersBook)
 -- Numbers Devil Deal: Increase damage by .3 every time you use an active item?
 -- Numbers 14:28-30
 local evilNumbers = Isaac.GetItemIdByName("Numbers 14:28-30")
-function mod:NumbersDevilDeal()
+function mod:NumbersDevilItem()
         local player = Isaac.GetPlayer()
         local itemCount = player:GetCollectibleNum(evilNumbers)
         player.Damage = player.Damage + (.3 * itemCount)
 end
 
-mod:AddCallback(ModCallbacks.MC_USE_ITEM, mod.NumbersDevilDeal)
+mod:AddCallback(ModCallbacks.MC_USE_ITEM, mod.NumbersDevilItem)
 
+
+-- Numbers Angels Deal: Balaam's curse, every floor with a curse gets it removed multiplies damage by 1.5
+local goodNumbers = Isaac.GetItemIdByName("Numbers 23:25-26")
+local amountToMultiplyDamageStatBy = 1.5
+function  mod:NumbersAngelItem()
+    local level = Game():GetLevel()
+    local curseCount = level:GetCurses()
+    local player = Isaac.GetPlayer()
+    if curseCount ~= 0 and player:GetCollectibleNum(goodNumbers) > 0 then
+        -- Remove all possible curses
+        Game():GetLevel():RemoveCurses(LevelCurse.CURSE_OF_DARKNESS | LevelCurse.CURSE_OF_LABYRINTH | LevelCurse.CURSE_OF_THE_LOST | LevelCurse.CURSE_OF_THE_UNKNOWN | LevelCurse.CURSE_OF_THE_CURSED | LevelCurse.CURSE_OF_MAZE | LevelCurse.CURSE_OF_BLIND)
+        player.Damage = player.Damage * amountToMultiplyDamageStatBy
+    end
+end
+
+mod:AddCallback(ModCallbacks.MC_POST_NEW_LEVEL, mod.NumbersAngelItem)
 
 -- Jonah: Resets angel chance to 100% on pickup, +.5 speed, +.5 damage
 -- https://wofsauge.github.io/IsaacDocs/rep/faq/faq.html?h=ange#how-do-i-modify-the-devil-room-angel-room-chances
