@@ -97,8 +97,9 @@ mod:AddCallback(ModCallbacks.MC_USE_ITEM, mod.NumbersUse, numbersBook)
 -- Numbers 14:28-30
 local evilNumbers = Isaac.GetItemIdByName("Numbers 14:28-30")
 function mod:NumbersDevilDeal()
-    local player = Isaac.GetPlayer()
-    player.Damage = player.Damage + .3
+        local player = Isaac.GetPlayer()
+        local itemCount = player:GetCollectibleNum(evilNumbers)
+        player.Damage = player.Damage + (.3 * itemCount)
 end
 
 mod:AddCallback(ModCallbacks.MC_USE_ITEM, mod.NumbersDevilDeal)
