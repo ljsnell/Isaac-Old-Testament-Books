@@ -5,4 +5,5 @@
     <active id="3" name="Numbers" gfx="bookofnumbers.png" description="Numbers going up" quality="2" maxcharges="6" chargetype="normal" />
     <passive id="4" name="Numbers 14:28-30" gfx="bookofnumbers_devil.png" description="Time Brings Strength" quality="3" devilprice="2"/>
     <passive id="5" name="Numbers 23:25-26" gfx="bookofnumbers_angel.png" description="Balaam's Curses" quality="3" cache="damage"/>
+    <passive id="6" name="Job 39:13-18" gfx="bookofjob.png" description="Carelessness Rewarded" quality="2"/>
 </items>
