@@ -1,14 +1,16 @@
 -- Joshua: Passive horn which destroys all rocks every 7 new rooms. Maybe damage buff for the room?
-local room_counter = 1
 function MOD:JoshuaNeutral(target)
-    if room_counter ~= 7 then        
-        print('in if')
+    
+    local room_counter = 1
+    if room_counter ~= 7 then
+        --Game():GetRoom():DestroyGrid(Game():GetLevel():GetCurrentRoomIndex(), true)
+        --print(Game():GetLevel():GetCurrentRoomIndex())
         -- check if room contains living enemies, if not we don't count it
         local is_new_room = false
         for i, entity in ipairs(Isaac.GetRoomEntities()) do
             if entity:IsEnemy() then
                 is_new_room = true
-                print('is a new room')
+                -- print('is a new room')
             end
         end
         if is_new_room then
@@ -23,6 +25,8 @@ function MOD:JoshuaNeutral(target)
         print('in else!')
         print(room_counter)
         -- Call code to destory rocks
+		-- https://wofsauge.github.io/IsaacDocs/rep/Room.html?h=destroy#destroygrid
+        
     end
 end
 
