@@ -9,7 +9,6 @@ function MOD:JoshuaNeutral(target)
             -- local is_new_room = false
             -- if is_new_room then increment by +1
             room_counter = room_counter + 1
-            print(room_counter)
         else
             -- audio queue?
             -- reset room counter
