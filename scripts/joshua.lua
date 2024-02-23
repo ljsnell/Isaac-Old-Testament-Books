@@ -1,4 +1,4 @@
--- Joshua: Passive horn which destroys all rocks every 7 new rooms. Maybe damage buff for the room?
+-- Joshua: Passive horn which destroys all rocks every 7 new rooms.
 local joshua = Isaac.GetItemIdByName("Joshua 6:20")
 local room_counter = 1
 local flat_increase = .7
@@ -11,13 +11,11 @@ function MOD:JoshuaNeutral(target)
             print('in if')
             print(room_counter)
             -- if is_new_room then increment by +1
-            -- reduce damage back to starting level
+            -- slowly reduce stats back to near starting level (net +.1 per cycle)
             room_counter = room_counter + 1
             player.Damage = player.Damage - per_room_decrease
-            player.ShotSpeed = player.ShotSpeed - per_room_decrease
             player.Luck = player.Luck - per_room_decrease
         else
-            print('in else')
             print(room_counter)
             -- audio queue?
             -- reset room counter
@@ -35,22 +33,13 @@ function MOD:JoshuaNeutral(target)
                     end
                 end
             end
-            -- Increase damage, shotspeed & luck temporarily
+            -- Increase damage & luck temporarily
             player.Damage = player.Damage + flat_increase
-            player.ShotSpeed = player.ShotSpeed + flat_increase
             player.Luck = player.Luck + flat_increase
         end
     end
 end
 
--- function MOD:JoshuaNeutralStats(player, cacheFlags)
---     if item_count > 0 then
---         if room_counter ~= 7 then
-            
---         end
---     end
--- end
-
 MOD:AddCallback(ModCallbacks.MC_POST_NEW_ROOM,MOD.JoshuaNeutral)
--- MOD:AddCallback(ModCallbacks.MC_EVALUATE_CACHE,MOD.JoshuaNeutralStats)
+
 -- Angel familiar for Joshua 15:15?
