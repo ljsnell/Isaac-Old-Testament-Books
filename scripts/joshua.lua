@@ -3,21 +3,21 @@ local joshua = Isaac.GetItemIdByName("Joshua 6:20")
 local room_counter = 1
 local flat_increase = .7
 local per_room_decrease = .1
-local player = Isaac.GetPlayer()
+local number_of_rooms_between_proc = 7
 function MOD:JoshuaNeutral(target)
-    local item_count = Isaac.GetPlayer():GetCollectibleNum(joshua)
+    local player = Isaac.GetPlayer()
+    local item_count = player:GetCollectibleNum(joshua)
     if item_count > 0 then
-        if room_counter ~= 2 then
-            print('in if')
-            print(room_counter)
+        if room_counter ~= number_of_rooms_between_proc then
+            print('in if')            
             -- if is_new_room then increment by +1
             -- slowly reduce stats back to near starting level (net +.1 per cycle)
             room_counter = room_counter + 1
             player.Damage = player.Damage - per_room_decrease
             player.Luck = player.Luck - per_room_decrease
         else
-            print(room_counter)
-            -- audio queue?
+            -- Audio cue
+            SFXManager():Play(SoundEffect.SOUND_GFUEL_AIR_HORN, 1, 0, false, 1, 0)
             -- reset room counter
             room_counter = 1
             -- Call code to destroy rocks
