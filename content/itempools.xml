@@ -5,6 +5,7 @@
         <Item Name="Jonah" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
         <Item Name="Numbers" Weight="1" DecreaseBy="1" RemoveOn="0.1" />  
         <Item Name="Job 39:13-18" Weight="1" DecreaseBy="1" RemoveOn="0.1" />  
+        <Item Name="Joshua 6:20" Weight="1" DecreaseBy="1" RemoveOn="0.1" />  
     </Pool>
     <Pool Name="devil">
         <Item Name="Numbers 14:28-30" Weight="1" DecreaseBy="1" RemoveOn="0.1" />

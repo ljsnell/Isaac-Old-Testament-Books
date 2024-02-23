@@ -27,7 +27,7 @@ end
 MOD:AddCallback(ModCallbacks.MC_USE_ITEM, MOD.NumbersUse, numbersBook)
 
 
--- Numbers Devil Deal: Increase damage by .3 every time you use an active item?
+-- Numbers Devil Deal: Increase damage by .3 every time you use an active item
 -- Numbers 14:28-30
 local evilNumbers = Isaac.GetItemIdByName("Numbers 14:28-30")
 function MOD:NumbersDevilItem()
