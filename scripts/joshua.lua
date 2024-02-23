@@ -9,7 +9,6 @@ function MOD:JoshuaNeutral(target)
     local item_count = player:GetCollectibleNum(joshua)
     if item_count > 0 then
         if room_counter ~= number_of_rooms_between_proc then
-            print('in if')            
             -- if is_new_room then increment by +1
             -- slowly reduce stats back to near starting level (net +.1 per cycle)
             room_counter = room_counter + 1
