@@ -7,4 +7,5 @@
     <passive id="5" name="Numbers 23:25-26" gfx="bookofnumbers_angel.png" description="Balaam's Curses" quality="4" cache="damage"/>
     <passive id="6" name="Job 39:13-18" gfx="bookofjob.png" description="Carelessness Rewarded" quality="1"/>
     <passive id="7" name="Joshua 6:20" gfx="bookofjoshua.png" description="Patience Rewarded" quality="2" cache="damage luck shotspeed"/>
+    <passive id="8" name="Genesis 4:14-15" gfx="bookofgenesis_devil.png" description="Bloody Vengeance" quality="2" devilprice="1"/>
 </items>
