@@ -8,9 +8,15 @@ function MOD:GenesisDevilItem()
     if itemCount > 0 then
        -- https://www.reddit.com/r/themoddingofisaac/comments/6c23d9/what_are_the_tags_to_cause_damage_to_entities/ 
        -- Deal 40 damage just like a black heart https://bindingofisaacrebirth.fandom.com/wiki/Hearts
-       -- Black heart audio cue
+        local entities = Isaac.GetRoomEntities()
+        for i = 1, entities do
+            if entities[i]:IsVulnerableEnemy() then
+                entities[i]:TakeDamage(40, 0, EntityRef(Isaac.GetPlayer()), 1)
+            end
+        -- Black heart audio cue
+        SFXManager():Play(SoundEffect.SOUND_UNHOLY, 1, 0, false, 1, 0)
+        end
     end
-
 end
 
 MOD:AddCallback(ModCallbacks.MC_ENTITY_TAKE_DMG, MOD.GenesisDevilItem, EntityType.ENTITY_PLAYER)
