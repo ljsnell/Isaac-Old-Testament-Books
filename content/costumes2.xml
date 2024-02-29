@@ -2,4 +2,5 @@
     <costume id="2" anm2path="jonah_mark_item.anm2" type="passive" priority="0" />
     <costume id="6" anm2path="job_39_13_18_item.anm2" type="passive" priority="0" />
     <costume id="7" anm2path="joshua_6_20_item.anm2" type="passive" priority="0" />
+    <costume id="8" anm2path="genesis_4_14_15.anm2" type="passive" priority="0" />
 </costumes>
