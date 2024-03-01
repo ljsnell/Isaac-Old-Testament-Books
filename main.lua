@@ -1,5 +1,5 @@
 -- Item Ideas ---- 
-    -- Numbers (Angel Item): Guy who runs someone through with a spear (double damage for subsequent piercing shots)
+    -- Numbers (Angel Item): Spear of Phineas (double damage for subsequent piercing shots)
 -- Lamentations: Doubles creep damage ☑
 -- Judges: Spawns a random beggar, 6 room charge
     -- Separate items for each judge?
